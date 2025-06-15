@@ -69,23 +69,23 @@ This repository provides a MATLAB implementation of both **crisp** and **fuzzy**
 1. **Normalize** the direct-influence matrix by its maximum row sum.  
 2. **Compute** the total-relation matrix  
    \[
-     T = D \,(I - D)^{-1}
+     $T = D \,(I - D)^{-1}$
    \]
-3. **Prominence**: \(P_i = \sum_j T_{ij} + \sum_j T_{ji}\)  
-4. **Relation**:  \(C_i = \sum_j T_{ij} - \sum_j T_{ji}\)  
-5. **Cause/Effect**: sign of \(C_i\) (positive → Cause, negative → Effect)
+3. **Prominence**: \$(P_i = \sum_j T_{ij} + \sum_j T_{ji}\)$  
+4. **Relation**:  \$(C_i = \sum_j T_{ij} - \sum_j T_{ji}\)$  
+5. **Cause/Effect**: sign of \$(C_i\)$ (positive → Cause, negative → Effect)
 
 ### 2. Fuzzy DEMATEL
 1. **Map** each linguistic code to a triangular fuzzy number (TFN) via Lin & Wu (2008).  
 2. **Normalize** the upper slice by its max row sum.  
-3. **Compute** three total-relation slices \(T_{\text{low}},T_{\text{mid}},T_{\text{up}}\).  
-4. **Defuzzify** via CFCS (global min/max) to a crisp \(T\).  
-5. **Compute** \(P\), \(C\), and Cause/Effect as above.
+3. **Compute** three total-relation slices \$(T_{\text{low}},T_{\text{mid}},T_{\text{up}}\)$.  
+4. **Defuzzify** via CFCS (global min/max) to a crisp \$(T\)$.  
+5. **Compute** \$(P\)$, \$(C\)$, and Cause/Effect as above.
 
 ### 3. Driver knockout
-For each **cause** factor \(k\):  
-1. Set row \(k\) to zero in the original matrix.  
-2. Re-run DEMATEL, measure the **percent drop** in \(\sum_i P_i\).  
+For each **cause** factor \$(k\)$:  
+1. Set row \$(k\)$ to zero in the original matrix.  
+2. Re-run DEMATEL, measure the **percent drop** in \$(\sum_i P_i\)$.  
 3. Higher % → more critical driver.
 
 ---
@@ -93,7 +93,7 @@ For each **cause** factor \(k\):
 ## Alternative analyses
 
 - **Grouped bar chart** of crisp vs fuzzy leverage drops per driver  
-- **Scatter plot** of \(\Delta_i = dF_i - dC_i\) to highlight shifts under fuzzification  
+- **Scatter plot** of \$(\Delta_i = dF_i - dC_i\)$ to highlight shifts under fuzzification  
 - **Top-N table** of the most critical drivers with their % drops
 
 _Code snippets for these are included at the end of `main.m`._
